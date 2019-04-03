@@ -10,7 +10,7 @@ import com.example.weixin.domain.location.LocationInMessage;
 import com.example.weixin.domain.shortvideo.ShortvideoInMessage;
 import com.example.weixin.domain.text.TextInMessage;
 import com.example.weixin.domain.video.VideoInMessage;
-import com.example.weixin.domain.vioce.VioceInMessage;
+import com.example.weixin.domain.voice.VoiceInMessage;
 
 public class MessageTypeMapper {
 
@@ -21,7 +21,7 @@ public class MessageTypeMapper {
 		typeMap.put("text", TextInMessage.class);
 		typeMap.put("image", ImageInMessage.class);
 
-		typeMap.put("vioce", VioceInMessage.class);
+		typeMap.put("voice", VoiceInMessage.class);
 		
 		typeMap.put("video", VideoInMessage.class);
 		typeMap.put("location", LocationInMessage.class);

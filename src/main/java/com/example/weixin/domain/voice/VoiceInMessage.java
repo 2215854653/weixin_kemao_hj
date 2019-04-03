@@ -1,5 +1,6 @@
-package com.example.weixin.domain.vioce;
+package com.example.weixin.domain.voice;
 
+import com.example.weixin.domain.InMessage;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -9,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "xml")
-public class VioceInMessage extends InMessage{
+public class VoiceInMessage extends InMessage{
 	
 	private static final long serialVersionUID = 1L;
 	@XmlElement(name = "Format")
@@ -19,37 +20,39 @@ public class VioceInMessage extends InMessage{
 	@XmlElement(name = "MediaId")
 	@JsonProperty("MediaId")
 	private String mediaId;
+	
 
-	public VioceInMessage() {
+	public VoiceInMessage() {
 		super.setMsgType("vioce");
 		
 	}
+
 
 	public String getFormat() {
 		return format;
 	}
 
+
 	public void setFormat(String format) {
 		this.format = format;
 	}
+
 
 	public String getMediaId() {
 		return mediaId;
 	}
 
+
 	public void setMediaId(String mediaId) {
 		this.mediaId = mediaId;
 	}
 
+
 	@Override
 	public String toString() {
-		return "VioceInMessage [format=" + format + ", mediaId=" + mediaId + ", getToUserName()=" + getToUserName()
+		return "VoiceInMessage [format=" + format + ", mediaId=" + mediaId + ", getToUserName()=" + getToUserName()
 				+ ", getFromUserName()=" + getFromUserName() + ", getCreateTime()=" + getCreateTime()
 				+ ", getMsgType()=" + getMsgType() + ", getMsgId()=" + getMsgId() + "]";
 	}
-
 	
-
-	
-
-}
+	}

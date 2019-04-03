@@ -34,7 +34,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class MessageReceiverController {
 
 	private static final Logger LOG = LoggerFactory.getLogger(MessageReceiverController.class);
-
+    
+	@Autowired
+	private RedisTemplate<String, InMessage> inMessageTemplate;
 	
 	@GetMapping // 只处理GET请求
 	public String echo(//
@@ -63,13 +65,6 @@ public class MessageReceiverController {
 		LOG.debug("收到用户发送给公众号的信息: \n-----------------------------------------\n"
 				+ "{}\n-----------------------------------------\n", xml);
 
-//		if (xml.contains("<MsgType><![CDATA[text]]></MsgType>")) {
-//		} else if (xml.contains("<MsgType><![CDATA[image]]></MsgType>")) {
-//		} else if (xml.contains("<MsgType><![CDATA[voice]]></MsgType>")) {
-//		} else if (xml.contains("<MsgType><![CDATA[video]]></MsgType>")) {
-//		} else if (xml.contains("<MsgType><![CDATA[location]]></MsgType>")) {
-//		}
-
 		// 截取消息类型
 		// <MsgType><![CDATA[text]]></MsgType>
 		String type = xml.substring(xml.indexOf("<MsgType><![CDATA[") + 18);
@@ -83,6 +78,15 @@ public class MessageReceiverController {
 		LOG.debug("转换得到的消息对象 \n{}\n", inMessage.toString());
 
 		// 把消息放入消息队列
+		inMessageTemplate.execute(new RedisCallback<String>() {
+			
+			@Override
+			public String doInRedis(RedisConnection connection) throws DataAccessException{
+				return null;
+			}
+		});
+		
+		
 		
 		// 由于后面会把消息放入队列中，所以这里直接返回success。
 		return "success";
