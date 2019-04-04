@@ -14,10 +14,10 @@ import com.example.weixin.domain.InMessage;
 public class WeixinApplication {
 	
 	@Bean
-	public RedisTemplate<String,InMessage> inMessageTemplate(
-			@Autowired RedisConnectionFactory redisConnectionFartory){
+	public RedisTemplate<String, InMessage> inMessageTemplate(//
+			@Autowired RedisConnectionFactory redisConnectionFactory) {
 		RedisTemplate<String, InMessage> template = new RedisTemplate<>();
-		template.setConnectionFactory(redisConnectionFartory);
+		template.setConnectionFactory(redisConnectionFactory);
 		return template;
 	}
 
