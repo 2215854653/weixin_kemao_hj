@@ -41,7 +41,7 @@ public abstract class InMessage implements Serializable {
 	@JsonProperty("MsgId")
 	private Long msgId;
 
-	public String getToUserName() {
+	public String getToUserName() { 
 		return toUserName;
 	}
 

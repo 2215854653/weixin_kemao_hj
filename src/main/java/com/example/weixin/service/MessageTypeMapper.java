@@ -4,6 +4,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 import com.example.weixin.domain.InMessage;
+import com.example.weixin.domain.event.EventInMessage;
 import com.example.weixin.domain.image.ImageInMessage;
 import com.example.weixin.domain.link.LinkInMessage;
 import com.example.weixin.domain.location.LocationInMessage;
@@ -27,7 +28,9 @@ public class MessageTypeMapper {
 		typeMap.put("location", LocationInMessage.class);
 		typeMap.put("shortvideo", ShortvideoInMessage.class);
 		typeMap.put("link", LinkInMessage.class);
-      	typeMap.put("event", InMessage.class);
+
+      	
+      	typeMap.put("event", EventInMessage.class);
 	}
 
 	// 通过消息类型获取对应的类
